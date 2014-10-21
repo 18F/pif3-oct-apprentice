@@ -6,6 +6,8 @@ The workflow proceeds in a few discrete steps:
 2. Run the `clean.py` script from within the `py` directory, which will convert the data into a JSON file that can be imported and adjusted for the front-end site.  This will probably use the following command: `python clean.py`
 3. Do whatever Aidan did in order to make this page, using the data site.
 
+When you push to the `gh-pages` branch, the site will update.  Currently, all real content is located [here](http://18f.github.io/pif3-oct-apprentice/listing.html).
+
 ### Public domain
 
 This project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
