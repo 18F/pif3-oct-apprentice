@@ -47,9 +47,10 @@ def _process(entry):
 
         phone = {'phone': entry['PHONE_NUM']}
         occupation = {'occupation': entry['OCC_TITLE'].strip()}
+        email = {'email': 'mailto:' + entry['EMAIL'].strip()}
 
         data_list = [
-            payload, coords, phone, occupation
+            payload, coords, phone, occupation, email
         ]
 
         return encoded_dict({k: v for d in data_list for k, v in d.items()})
@@ -59,7 +60,7 @@ def _process(entry):
 
 def carto_table(datadir='../data', n=None):
     """Prepare the data for upload to CartoDB, from Raw CSV file to JSON to
-    output, geocoded CSV file"""
+    output, geocoded CSV file (saved to data subdirectory)"""
     convert_to_json()
 
     with open(datadir + '/raw.json') as f:
@@ -72,3 +73,8 @@ def carto_table(datadir='../data', n=None):
     df = pandas.DataFrame(processed)
     df.to_csv(datadir + '/carto.csv')
     return df
+
+
+if __name__ == "__main__":
+    """NOTE THAT THE FINAL MAP IS LOCATED AT: http://cdb.io/1nyeBS4"""
+    carto_table()
