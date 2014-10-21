@@ -1,6 +1,11 @@
 $(document).ready(function(){
   var dataPromise = $.get('data/raw.json');
 
+  // limit to first 100 - FOR TESTING ONLY
+  dataPromise = dataPromise.then(function(data){
+    return _.first(data, 100);
+  });
+
   // display option selectors
   dataPromise.then(function(data){
     var types = _.pluck(data, 'OCC_TITLE');
@@ -13,6 +18,15 @@ $(document).ready(function(){
 
     $('.job-type').append(markup);
   });
+
+
+  var $select = $('.job-type');
+  $select.on('change', function(){
+    var type = $select.val().trim();
+    $('.job[data-job-type="' + type + '"]').show();
+    $('.job[data-job-type!="' + type + '"]').hide();
+  });
+
 
   // display data rows
   dataPromise.then(function(data){
@@ -31,7 +45,7 @@ $(document).ready(function(){
         return '<td>' + field + '</td>';
       });
 
-      return lastRow + '<tr>' + tds.join() + '</tr>';
+      return lastRow + '<tr class="job" data-job-type="' + sponsor.OCC_TITLE.trim() + '">' + tds.join() + '</tr>';
     }, '');
 
     $('.sponsors').append(markup);
