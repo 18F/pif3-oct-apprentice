@@ -23,8 +23,12 @@ $(document).ready(function(){
   var $select = $('.job-type');
   $select.on('change', function(){
     var type = $select.val().trim();
-    $('.job[data-job-type="' + type + '"]').show();
-    $('.job[data-job-type!="' + type + '"]').hide();
+    if (type){
+      $('.job[data-job-type="' + type + '"]').show();
+      $('.job[data-job-type!="' + type + '"]').hide();
+    } else {
+      $('.job').show();
+    }
   });
 
 
