@@ -2,13 +2,13 @@
 
 The workflow proceeds in a few discrete steps:
 
-    1. Save the most recent version of the data set as a CSV in the `data` subdirectory.
-    2. Run the python script from within the `py` directory, probably with the following command:
-    ```bash
-    python clean.py
-    ```
-    This will convert the data into a JSON file that can be imported and adjusted for the front-end site.
-    3. Do whatever Aidan did in order to make this page, using the data site.
+1. Save the most recent version of the data set as a CSV in the `data` subdirectory.
+2. Run the python script from within the `py` directory, probably with the following command:
+```bash
+python clean.py
+```
+This will convert the data into a JSON file that can be imported and adjusted for the front-end site.
+3. Do whatever Aidan did in order to make this page, using the data site.
 
 ### Public domain
 
