@@ -1,15 +1,14 @@
-# Create an 18F-branded microsite by forking this site.
+### How do I use this project?!?
 
-Basic instructions:
-* Fork this site.
-* Rename it.
-* Add specific content, especially to index.html.
-* Change this README.md!
+The workflow proceeds in a few discrete steps:
 
-This repo  is meant to cloned.  This micro-site template is used to
-automatically create new microsites which can be easily customized.
-If you are the owner if this README, you have probably already cloned
-it and should replace it with something far more specific.
+    1. Save the most recent version of the data set as a CSV in the `data` subdirectory.
+    2. Run the python script from within the `py` directory, probably with the following command:
+    ```bash
+    python clean.py
+    ```
+    This will convert the data into a JSON file that can be imported and adjusted for the front-end site.
+    3. Do whatever Aidan did in order to make this page, using the data site.
 
 ### Public domain
 
