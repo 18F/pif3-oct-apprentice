@@ -1,5 +1,21 @@
 $(document).ready(function(){
-  $.get('data/raw.json', function(data){
+  var dataPromise = $.get('data/raw.json');
+
+  // display option selectors
+  dataPromise.then(function(data){
+    var types = _.pluck(data, 'OCC_TITLE');
+    types = _.uniq(types);
+    types.sort();
+
+    var markup = types.reduce(function(lastOption, type){
+      return lastOption + '<option>' + type + '</type>';
+    }, '');
+
+    $('.job-type').append(markup);
+  });
+
+  // display data rows
+  dataPromise.then(function(data){
     var markup = data.reduce(function(lastRow, sponsor){
       var fields = [
         sponsor.SPON_ORG_NAME,
